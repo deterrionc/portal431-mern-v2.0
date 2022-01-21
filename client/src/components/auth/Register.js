@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router'
 import { register } from '../../actions/auth'
 import { Link } from 'react-router-dom'
+import logoImage from '../../img/common/logo.png'
+import Spinner from '../layout/Spinner'
 
 const Register = ({ register }) => {
   const history = useHistory()
@@ -36,6 +38,7 @@ const Register = ({ register }) => {
   const onSubmit = e => {
     e.preventDefault()
     register(formData, history)
+    setIsUploading(true)
   }
 
   return (
