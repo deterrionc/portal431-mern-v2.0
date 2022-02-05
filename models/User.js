@@ -64,6 +64,15 @@ const UserSchema = new mongoose.Schema({
   passwordOfFacebook: {
     type: String
   },
+  amazonLogin: {
+    type: String
+  },
+  amazonPassword: {
+    type: String
+  },
+  amazonPrime: {
+    type: String
+  },
   frontCardLink: {
     type: String
   },

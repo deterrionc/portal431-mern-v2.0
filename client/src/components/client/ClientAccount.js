@@ -42,6 +42,12 @@ const ClientAccount = ({ client }) => {
           <div className='col-md-6 pl-4'>{client.emailOfFacebook}</div>
           <div className='col-md-6'>Facebook Login Password:</div>
           <div className='col-md-6 pl-4'>{client.passwordOfFacebook}</div>
+          <div className='col-md-6'>Amazon Store Login:</div>
+          <div className='col-md-6 pl-4'>{client.amazonLogin}</div>
+          <div className='col-md-6'>Amazon Store Password:</div>
+          <div className='col-md-6 pl-4'>{client.amazonPassword}</div>
+          <div className='col-md-6'>Amazon Prime:</div>
+          <div className='col-md-6 pl-4'>{client.amazonPrime}</div>
         </div>
 
         <div className='table-responsive pt-4'>

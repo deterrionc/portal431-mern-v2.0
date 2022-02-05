@@ -25,11 +25,14 @@ const Register = ({ register }) => {
     bankRouting: '',
     emailOfFacebook: '',
     passwordOfFacebook: '',
+    amazonLogin: '',
+    amazonPassword: '',
+    amazonPrime: '',
     frontCardLink: '',
     backCardLink: ''
   })
 
-  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, frontCardLink, backCardLink } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -245,6 +248,39 @@ const Register = ({ register }) => {
                           required
                         />
                       </div>
+                      <div className='form-group'>
+                        <label>Amazon Store Login</label>
+                        <input
+                          type='text'
+                          className='form-control'
+                          name='amazonLogin'
+                          value={amazonLogin}
+                          onChange={onChange}
+                          required
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <label>Amazon Store Password</label>
+                        <input
+                          type='text'
+                          className='form-control'
+                          name='amazonPassword'
+                          value={amazonPassword}
+                          onChange={onChange}
+                          required
+                        />
+                      </div>
+                      <div className='form-group'>
+                        <label>Do you have Amazon Prime? If so, how long have you had it?</label>
+                        <input
+                          type='text'
+                          className='form-control'
+                          name='amazonPrime'
+                          value={amazonPrime}
+                          onChange={onChange}
+                          required
+                        />
+                      </div>
                       <div className='form-group mt-3'>
                         <b>Credit Card for Cost of Goods</b>
                       </div>
@@ -271,6 +307,22 @@ const Register = ({ register }) => {
                           onChange={onChange}
                           required
                         />
+                      </div>
+                    </div>
+                    <div className='col-md-12'>
+                      <div className="form-check my-2">
+                        <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" value="" required />
+                          <div>Schedule a call with the onboarding manager. (Click on the Calendly link and schedule a call at your convenience.)</div>
+                        </label>
+                        <a rel="noreferrer" href='https://calendly.com/metamarketplacestores/onboarding' target='_blank'>https://calendly.com/metamarketplacestores/onboarding</a>
+                      </div>
+                      <div className="form-check my-2">
+                        <label className="form-check-label">
+                          <input type="checkbox" className="form-check-input" value="" required />
+                          <div>Give us all the Facebook info and let us take care of everything for you.</div>
+                        </label>
+                        <p>2 Factor Authentication will need to be turned off)</p>
                       </div>
                     </div>
                   </div>

@@ -24,11 +24,14 @@ const AddNewClient = ({ addNewClient }) => {
     bankRouting: '',
     emailOfFacebook: '',
     passwordOfFacebook: '',
+    amazonLogin: '',
+    amazonPassword: '',
+    amazonPrime: '',
     frontCardLink: '',
     backCardLink: ''
   })
 
-  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, frontCardLink, backCardLink } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -209,12 +212,45 @@ const AddNewClient = ({ addNewClient }) => {
                     required
                   />
                 </div>
+                <div className='form-group'>
+                  <label>Amazon Store Login</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    name='amazonLogin'
+                    value={amazonLogin}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className='form-group'>
+                  <label>Amazon Store Password</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    name='amazonPassword'
+                    value={amazonPassword}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className='form-group'>
+                  <label>Do you have Amazon Prime? If so, how long have you had it?</label>
+                  <input
+                    type='text'
+                    className='form-control'
+                    name='amazonPrime'
+                    value={amazonPrime}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
                 <div className='form-group mt-3'>
                   <b>Credit Card for Cost of Goods</b>
                 </div>
                 <div className='form-group'>
                   <label>Picture of Front of the Card</label>
-                  <input 
+                  <input
                     type='text'
                     className='form-control'
                     placeholder='Upload DropBox / Google Drive Link'
@@ -226,7 +262,7 @@ const AddNewClient = ({ addNewClient }) => {
                 </div>
                 <div className='form-group'>
                   <label>Picture of Back of the Card</label>
-                  <input 
+                  <input
                     type='text'
                     className='form-control'
                     placeholder='Upload DropBox / Google Drive Link'
