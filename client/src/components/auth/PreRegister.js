@@ -8,8 +8,8 @@ const PreRegister = () => {
   return (
     <div className='container'>
       <div className='row'>
-        <div className='col-md-12'>
-          <div className="m-5 text-center">
+        <div className='col-md-12 m-5'>
+          <div className="text-center">
             <Vimeo
               video='354682480'
               responsive={true}

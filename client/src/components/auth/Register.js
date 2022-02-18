@@ -5,6 +5,7 @@ import { register } from '../../actions/auth'
 import { Link } from 'react-router-dom'
 import logoImage from '../../img/common/logo.png'
 import Spinner from '../layout/Spinner'
+import Vimeo from '@u-wave/react-vimeo'
 
 const Register = ({ register }) => {
   const history = useHistory()
@@ -43,6 +44,10 @@ const Register = ({ register }) => {
     register(formData, history)
     setIsUploading(true)
   }
+
+  React.useEffect(() => {
+    document.getElementById('guide-button').click()
+  }, [])
 
   return (
     <div className='container-fluid bg-Client bg-admin'>
@@ -324,18 +329,44 @@ const Register = ({ register }) => {
                         </label>
                         <p>2 Factor Authentication will need to be turned off)</p>
                       </div>
+                      <div className='text-right'>
+                        <button type="button" id='guide-button' className="btn btn-sm btn-info" data-toggle="modal" data-target="#myModal">
+                          Video Guide
+                        </button>
+                      </div>
                     </div>
                   </div>
                   <div className='form-group pt-3'>
                     <input
                       type='submit'
                       className='form-control'
-                      style={{ backgroundColor: '#A78BE2' }}
+                      style={{ backgroundColor: '#0071BD', color: 'white' }}
                       value='Submit'
                     />
                   </div>
                 </form>
               }
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="modal" id="myModal">
+        <div className="modal-dialog modal-xl">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title font-bold">Video Guide</h4>
+              <button type="button" className="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div className="modal-body">
+              <div className="text-center m-3">
+                <Vimeo
+                  video='354682480'
+                  responsive={true}
+                />
+              </div>
+            </div>
+            <div className="modal-footer">
+              <button type="button" className="btn btn-sm btn-info" data-dismiss="modal">Close</button>
             </div>
           </div>
         </div>
