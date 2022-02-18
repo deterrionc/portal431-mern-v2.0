@@ -9,7 +9,7 @@ const PreRegister = () => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-12 m-5'>
-          <div className="text-center">
+          <div className="text-center mb-4">
             <Vimeo
               video='354682480'
               responsive={true}
