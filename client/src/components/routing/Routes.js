@@ -7,12 +7,14 @@ import Alert from '../layout/Alert'
 import Dashboard from '../dashboard/Dashboard'
 import NotFound from '../layout/NotFound'
 import PrivateRoute from '../routing/PrivateRoute'
+import PreRegister from '../auth/PreRegister'
 
 const Routes = () => {
   return (
     <>
       <Alert />
       <Switch>
+        <Route exact path="/pre-register" component={PreRegister} />
         <Route exact path="/register" component={Register} />
         <Route exact path="/after-register" component={AfterRegister} />
         <Route exact path="/login" component={Login} />
