@@ -11,7 +11,7 @@ const PreRegister = () => {
         <div className='col-md-12 m-5'>
           <div className="text-center mb-4">
             <Vimeo
-              video='354682480'
+              video='679529209'
               responsive={true}
             />
           </div>

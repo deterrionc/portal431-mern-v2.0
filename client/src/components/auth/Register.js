@@ -360,7 +360,7 @@ const Register = ({ register }) => {
             <div className="modal-body">
               <div className="text-center m-3">
                 <Vimeo
-                  video='354682480'
+                  video='679529673'
                   responsive={true}
                 />
               </div>
