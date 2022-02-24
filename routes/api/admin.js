@@ -244,6 +244,7 @@ router.post('/addNewCourse', async (req, res) => {
 })
 
 router.get('/getCourses', async (req, res) => {
+  console.log('getCourses')
   const courses = await Course.find()
 
   res.json({
