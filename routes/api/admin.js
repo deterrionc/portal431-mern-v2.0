@@ -21,9 +21,6 @@ const mailgunApiKey = config.get('mailgun.mailgunApiKey')
 const mailgunDomain = config.get('mailgun.domain')
 var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 
-const bcrypt = require('bcryptjs');
-const salt = bcrypt.genSaltSync(10);
-
 router.get('/getAdminClients', async (req, res) => {
   const clientsFromDB = await User.find({ type: 'client' })
   var clients = []
