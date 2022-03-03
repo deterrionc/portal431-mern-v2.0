@@ -35,6 +35,12 @@ const ClientSidebar = ({ logout, setCurrentPage, currentPage }) => {
         </div>
         <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'dashboard' ? 'selected' : '')} onClick={() => goPage('dashboard')}>
           <div className='d-flex align-items-center'>
+            <i className='fa fa-database pt-2 mr-2 h6'></i>
+            <span>My Account</span>
+          </div>
+        </div>
+        <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'store-report' ? 'selected' : '')} onClick={() => goPage('store-report')}>
+          <div className='d-flex align-items-center'>
             <i className='fa fa-map-pin pt-2 mr-2 pr-1 h6'></i>
             <span>Store Report</span>
           </div>
@@ -45,30 +51,12 @@ const ClientSidebar = ({ logout, setCurrentPage, currentPage }) => {
             <div>Messages</div>
           </div>
         </div>
-        <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'account' ? 'selected' : '')} onClick={() => goPage('account')}>
-          <div className='d-flex align-items-center'>
-            <i className='fa fa-database pt-2 mr-2 h6'></i>
-            <span>My Account</span>
-          </div>
-        </div>
         <div className={'row mx-1 h5 menuItem rounded p-1 ' + (currentPage === 'education' ? 'selected' : '')} onClick={() => goPage('education')}>
           <div className='d-flex align-items-center'>
             <i className='fa fa-file-video-o pt-2 mr-2 h6'></i>
             <span>Education</span>
           </div>
         </div>
-        {/* <div className='row mx-1 h5 menuItem' onClick={() => goPage('store-manage')}>
-          <div className='d-flex align-items-center'>
-            <i className='fa fa-map-pin pt-2 mr-2 pr-1 h6'></i>
-            <span>Store Management</span>
-          </div>
-        </div>
-        <div className='row mx-1 h5 menuItem' onClick={() => goPage('settings')}>
-          <div className='d-flex align-items-center'>
-            <i className='fa fa-clock-o pt-2 mr-2 h6'></i>
-            <span>Settings</span>
-          </div>
-        </div> */}
         <div className='row mx-1 h5 menuItem rounded p-1 signoutLink' onClick={() => {
           setCurrentPage('dashboard')
           logout()

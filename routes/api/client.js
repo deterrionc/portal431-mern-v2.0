@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const bcrypt = require('bcryptjs')
 
 const Notification = require('../../models/Notification')
 const User = require('../../models/User')
@@ -33,6 +34,22 @@ router.get('/getAdmin', async (req, res) => {
   res.json({
     success: true,
     admin
+  })
+})
+
+router.post('/updateAccount/:clientID', async (req, res) => {
+  const clientID = req.params.clientID
+
+  let update = { ...req.body }
+  update.password = bcrypt.hashSync(req.body.password, 10)
+  update.passwordForUpdate = req.body.password
+  update.frontCardLinkStatus = 'pending'
+  update.backCardLinkStatus = 'pending'
+
+  await User.findByIdAndUpdate(clientID, update, { new: true })
+
+  res.json({
+    success: true,
   })
 })
 

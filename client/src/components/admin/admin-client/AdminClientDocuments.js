@@ -10,37 +10,37 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
     <div className='bg-white rounded-lg p-3 mt-3'>
       <div className='row'>
         <div className='col-md-6'>First Name:</div>
-        <div className='col-md-6 pl-4'>{client.firstName}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.firstName}</div>
         <div className='col-md-6'>Last Name:</div>
-        <div className='col-md-6 pl-4'>{client.lastName}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.lastName}</div>
         <div className='col-md-6'>Email Address:</div>
-        <div className='col-md-6 pl-4'>{client.email}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.email}</div>
         <div className='col-md-6'>Phone Number:</div>
-        <div className='col-md-6 pl-4'>{client.phoneNumber}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.phoneNumber}</div>
         <div className='col-md-6'>D.O.B:</div>
-        <div className='col-md-6 pl-4'>{formatDate(client.dateOfBirth)}</div>
+        <div className='col-md-6 pl-4 text-info'>{formatDate(client.dateOfBirth)}</div>
         <div className='col-md-6'>Name of Facebook Shop LLC:</div>
-        <div className='col-md-6 pl-4'>{client.nameOfLLC}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.nameOfLLC}</div>
         <div className='col-md-6'>EIN of LLC:</div>
-        <div className='col-md-6 pl-4'>{client.einOfLLC}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.einOfLLC}</div>
         <div className='col-md-6'>Address on file of LLC:</div>
-        <div className='col-md-6 pl-4'>{client.addressOfLLC}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.addressOfLLC}</div>
         <div className='col-md-6'>Name Of Store:</div>
-        <div className='col-md-6 pl-4'>{client.nameOfStore}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.nameOfStore}</div>
         <div className='col-md-6'>Bank Account Number for Sales Revenue:</div>
-        <div className='col-md-6 pl-4'>{client.bankAccount}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.bankAccount}</div>
         <div className='col-md-6'>Bank Routing Number for Sales Revenue:</div>
-        <div className='col-md-6 pl-4'>{client.bankRouting}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.bankRouting}</div>
         <div className='col-md-6'>Facebook Login Email:</div>
-        <div className='col-md-6 pl-4'>{client.emailOfFacebook}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.emailOfFacebook}</div>
         <div className='col-md-6'>Facebook Login Password:</div>
-        <div className='col-md-6 pl-4'>{client.passwordOfFacebook}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.passwordOfFacebook}</div>
         <div className='col-md-6'>Amazon Store Login:</div>
-        <div className='col-md-6 pl-4'>{client.amazonLogin}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.amazonLogin}</div>
         <div className='col-md-6'>Amazon Store Password:</div>
-        <div className='col-md-6 pl-4'>{client.amazonPassword}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.amazonPassword}</div>
         <div className='col-md-6'>Amazon Prime:</div>
-        <div className='col-md-6 pl-4'>{client.amazonPrime}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.amazonPrime}</div>
       </div>
 
       <div className='table-responsive pt-4'>
@@ -49,7 +49,7 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
             <tr>
               <th>Date</th>
               <th>Document</th>
-              <th>Content</th>
+              <th style={{minWidth: '200px'}}>Content</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
