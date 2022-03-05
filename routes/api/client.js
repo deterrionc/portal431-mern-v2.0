@@ -54,6 +54,19 @@ router.post('/updateAccount/:clientID', async (req, res) => {
 
   await User.findByIdAndUpdate(clientID, update, { new: true })
 
+  const admin = await User.findOne({type: 'admin'})
+
+  var emailContentToCustomer = {
+    from: 'PORTAL <info@portal.431performance.com>',
+    to: 'info@431performance.com',
+    subject: 'A user updated his / her account profile.',
+    text: `Hi, ${admin.firstName} ${admin.lastName}. ${update.firstName} ${update.lastName} changed his account profile and documents. Please check https://portal.431performance.com`
+  }
+
+  mailgun.messages().send(emailContentToCustomer, function (error, body) {
+    console.log(body)
+  })
+
   res.json({
     success: true,
   })
@@ -77,7 +90,7 @@ router.post('/updateClient/:clientID', async (req, res) => {
       from: 'PORTAL <info@portal.431performance.com>',
       to: client.email,
       subject: 'Your account profile in portal.431performance.com is updated by admin',
-      text: `Hi, ${client.firstName} ${client.lastName}. Admin changed your account profile and documents. Your login email is ${update.email} and password is ${update.passwordForUpdate}. Please check https://portal.431performance.com/dashboard/messages`
+      text: `Hi, ${client.firstName} ${client.lastName}. Admin changed your account profile and documents. Your login email is ${update.email} and password is ${update.passwordForUpdate}. Please check https://portal.431performance.com/dashboard`
     }
 
     mailgun.messages().send(emailContentToCustomer, function (error, body) {
@@ -88,7 +101,7 @@ router.post('/updateClient/:clientID', async (req, res) => {
       from: 'PORTAL <info@portal.431performance.com>',
       to: client.email,
       subject: 'Your login credentials to portal.431performance.com are updated',
-      text: `Hi, ${client.firstName} ${client.lastName}. Admin changed your login credentials. Your login email is ${update.email} and password is ${update.passwordForUpdate}. Please check https://portal.431performance.com/dashboard/messages`
+      text: `Hi, ${client.firstName} ${client.lastName}. Admin changed your login credentials. Your login email is ${update.email} and password is ${update.passwordForUpdate}. Please check https://portal.431performance.com/dashboard`
     }
 
     mailgun.messages().send(emailContentToCustomer, function (error, body) {
