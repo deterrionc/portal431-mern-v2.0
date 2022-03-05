@@ -57,13 +57,16 @@ const ClientSidebar = ({ logout, setCurrentPage, currentPage }) => {
             <span>Education</span>
           </div>
         </div>
-        <div className='row mx-1 h5 menuItem rounded p-1 signoutLink' onClick={() => {
-          setCurrentPage('dashboard')
-          logout()
-        }}>
-          <div className='d-flex align-items-center'>
-            <div><i className='fa fa-sign-out mr-2 h6'></i></div>
-            <div>Sign Out</div>
+
+        <div className='signoutLink pt-3'>
+          <div className='row mx-1 h5 menuItem rounded p-1' onClick={() => {
+            setCurrentPage('dashboard')
+            logout()
+          }}>
+            <div className='d-flex align-items-center'>
+              <div><i className='fa fa-sign-out mr-2 h6'></i></div>
+              <div>Sign Out</div>
+            </div>
           </div>
         </div>
       </div>

@@ -1,6 +1,7 @@
 import api from '../utils/api'
 import { setAlert } from './alert'
 import { loadUser } from './auth'
+import { getClient, setCurrentPage } from './admin'
 import {
   CLIENT_NOTIFICATIONS_LOADED,
   CLIENT_ADMIN_LOADED
@@ -44,5 +45,15 @@ export const updateAccount = (clientID, formData, history) => async dispatch => 
     dispatch(setAlert('Your account is updated', 'success'))
     dispatch(loadUser())
     history.push('/')
+  }
+}
+
+export const updateClient = (clientID, formData, history) => async dispatch => {
+  const res = await api.post(`/client/updateClient/${clientID}`, formData)
+
+  if (res.data.success) {
+    dispatch(getClient(clientID))
+    dispatch(setCurrentPage('document'))
+    history.push('/clients')
   }
 }

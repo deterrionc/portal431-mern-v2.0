@@ -64,6 +64,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td, div, ul, li, input, label, textarea
 .bg-admin .sidebar .signoutLink {
   position: fixed;
   bottom: 20px;
+  width: 14% !important;
 }
 
 @media (max-width: 768px) {
@@ -74,6 +75,7 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td, div, ul, li, input, label, textarea
     position: inherit;
     margin-top: 30px;
     margin-bottom: 10px;
+    width: 100% !important;
   }
 }
 

@@ -5,12 +5,14 @@ import { documenetsPendingCheck } from '../../../utils/clientDocuments'
 import Spinner from '../../layout/Spinner'
 import AdminClientDocuments from './AdminClientDocuments'
 import AdminClientStore from './AdminClientStore'
+import AdminClientEdit from './AdminClientEdit'
 
 const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPage }) => {
 
   React.useEffect(() => {
     getClient(match.params.id)
   }, [match, getClient])
+  
   return (
     <div className='container admin-client'>
       {client ?
@@ -28,7 +30,7 @@ const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPa
           </div>
           {currentPage === 'store' ? <AdminClientStore clientID={match.params.id} /> : null}
           {currentPage === 'document' ? <AdminClientDocuments /> : null}
-          {currentPage === 'setting' ? <div>Setting</div> : null}
+          {currentPage === 'setting' ? <AdminClientEdit /> : null}
         </>
         : <Spinner />
       }
