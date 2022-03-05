@@ -56,7 +56,7 @@ router.post('/addNewClient', async (req, res) => {
 
   var emailContentToAdmin = {
     from: 'PORTAL <info@portal.431performance.com>',
-    to: 'stone@stoneross.com',
+    to: 'info@431performance.com',
     subject: 'There is a new customer registration.',
     html: `
     <html>
