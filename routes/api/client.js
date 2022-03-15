@@ -54,7 +54,7 @@ router.post('/updateAccount/:clientID', async (req, res) => {
 
   await User.findByIdAndUpdate(clientID, update, { new: true })
 
-  const admin = await User.findOne({type: 'admin'})
+  const admin = await User.findOne({ type: 'admin' })
 
   var emailContentToCustomer = {
     from: 'PORTAL <info@portal.431performance.com>',
@@ -69,6 +69,29 @@ router.post('/updateAccount/:clientID', async (req, res) => {
 
   res.json({
     success: true,
+  })
+})
+
+router.delete('/deleteClient/:clientID', async (req, res) => {
+  const clientID = req.params.clientID
+
+  const client = await User.findById(clientID)
+
+  var emailContentToCustomer = {
+    from: 'PORTAL <info@portal.431performance.com>',
+    to: client.email,
+    subject: 'Your account has been deleted by admin.',
+    text: `Hi, ${client.firstName} ${client.lastName}. We are sorry to confirm you this information. If you have questions, point them to email info@431perfomance.com`
+  }
+
+  mailgun.messages().send(emailContentToCustomer, function (error, body) {
+    console.log(body)
+  })
+
+  await User.findByIdAndDelete(clientID)
+
+  res.json({
+    success: true
   })
 })
 

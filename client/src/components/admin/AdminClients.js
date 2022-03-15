@@ -4,8 +4,9 @@ import { getAdminClients, goPage } from '../../actions/admin'
 import { useHistory } from 'react-router'
 import { formatDate } from '../../utils/formatDate1'
 import { documenetsPendingCheck } from '../../utils/clientDocuments'
+import { deleteClient } from '../../actions/client'
 
-const AdminClients = ({ getAdminClients, clients, goPage }) => {
+const AdminClients = ({ getAdminClients, clients, goPage, deleteClient }) => {
   const history = useHistory()
 
   React.useEffect(() => {
@@ -40,6 +41,7 @@ const AdminClients = ({ getAdminClients, clients, goPage }) => {
                   <th>Business Email</th>
                   <th>Phone Number</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -51,6 +53,19 @@ const AdminClients = ({ getAdminClients, clients, goPage }) => {
                     <td>{item.email}</td>
                     <td>{item.phoneNumber}</td>
                     <td><span className={'badge ' + (documenetsPendingCheck(item) === 'All Documents Approved' ? 'badge-info' : 'badge-pending')}>{documenetsPendingCheck(item)}</span></td>
+                    <td>
+                      <button
+                        className='btn btn-sm btn-info'
+                        onClick={e => {
+                          e.stopPropagation()
+                          if (window.confirm('Are you sure?')) {
+                            deleteClient(item._id)
+                          }
+                        }}
+                      >
+                        DELETE
+                      </button>
+                    </td>
                   </tr>
                 )}
               </tbody>
@@ -66,4 +81,4 @@ const mapStateToProps = state => ({
   clients: state.admin.clients
 })
 
-export default connect(mapStateToProps, { getAdminClients, goPage })(AdminClients)
+export default connect(mapStateToProps, { getAdminClients, goPage, deleteClient })(AdminClients)

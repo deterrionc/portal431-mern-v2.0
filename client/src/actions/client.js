@@ -1,7 +1,7 @@
 import api from '../utils/api'
 import { setAlert } from './alert'
 import { loadUser } from './auth'
-import { getClient, setCurrentPage } from './admin'
+import { getAdminClients, getClient, setCurrentPage } from './admin'
 import {
   CLIENT_NOTIFICATIONS_LOADED,
   CLIENT_ADMIN_LOADED
@@ -55,5 +55,13 @@ export const updateClient = (clientID, formData, history) => async dispatch => {
     dispatch(getClient(clientID))
     dispatch(setCurrentPage('document'))
     history.push('/clients')
+  }
+}
+
+export const deleteClient = clientID => async dispatch => {
+  const res = await api.delete(`/client/deleteClient/${clientID}`)
+
+  if (res.data.success) {
+    dispatch(getAdminClients())
   }
 }
