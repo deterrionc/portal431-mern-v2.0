@@ -49,7 +49,7 @@ const AdminClients = ({ getAdminClients, clients, goPage, deleteClient }) => {
                   <tr key={index} onClick={() => goPage(history, `client/${item._id}`)}>
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
-                    <td>{item.dateOfBirth}</td>
+                    <td>{item.dateOfBirth.slice(0, 10)}</td>
                     <td>{item.email}</td>
                     <td>{item.phoneNumber}</td>
                     <td><span className={'badge ' + (documenetsPendingCheck(item) === 'All Documents Approved' ? 'badge-info' : 'badge-pending')}>{documenetsPendingCheck(item)}</span></td>
