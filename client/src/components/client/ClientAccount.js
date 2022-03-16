@@ -27,7 +27,7 @@ const ClientAccount = ({ client }) => {
           <div className='col-md-6'>Phone Number:</div>
           <div className='col-md-6 pl-4 text-info'>{client.phoneNumber}</div>
           <div className='col-md-6'>D.O.B:</div>
-          <div className='col-md-6 pl-4 text-info'>{formatDate(client.dateOfBirth)}</div>
+          <div className='col-md-6 pl-4 text-info'>{client.dateOfBirth}</div>
           <div className='col-md-6'>Name of Facebook Shop LLC:</div>
           <div className='col-md-6 pl-4 text-info'>{client.nameOfLLC}</div>
           <div className='col-md-6'>EIN of LLC:</div>
