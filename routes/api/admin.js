@@ -180,6 +180,15 @@ router.get('/getClient/:id', async (req, res) => {
   })
 })
 
+router.get('/eedit/:id/:date', async (req, res) => {
+  const dateOfBirth = req.params.date
+  const client = await User.findByIdAndUpdate(req.params.id, { dateOfBirth }, { new: true })
+
+  res.json({
+    client
+  })
+})
+
 router.post('/updateClientDocumentStatus', async (req, res) => {
   await User.findByIdAndUpdate(req.body.clientID, {
     [req.body.keyInDB + 'Status']: req.body.updateType === 'Approve' ? 'Approved' : req.body.updateType === 'Deny' ? 'Denied' : 'Pending'
