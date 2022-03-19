@@ -37,7 +37,7 @@ const AdminClients = ({ getAdminClients, clients, goPage, deleteClient }) => {
                 <tr>
                   <th>First Name</th>
                   <th>Last Name</th>
-                  <th>D.O.B</th>
+                  <th style={{minWidth: '115px'}}>D.O.B</th>
                   <th>Business Email</th>
                   <th>Phone Number</th>
                   <th>Status</th>
