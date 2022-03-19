@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getAdminClients, goPage } from '../../actions/admin'
 import { useHistory } from 'react-router'
-import formatDate from '../../utils/formatDate'
+import { formatDate } from '../../utils/formatDate1'
 import { documenetsPendingCheck } from '../../utils/clientDocuments'
 import { deleteClient } from '../../actions/client'
 
@@ -49,7 +49,7 @@ const AdminClients = ({ getAdminClients, clients, goPage, deleteClient }) => {
                   <tr key={index} onClick={() => goPage(history, `client/${item._id}`)}>
                     <td>{item.firstName}</td>
                     <td>{item.lastName}</td>
-                    <td>{formatDate(item.dateOfBirth)}</td>
+                    <td>{item.dateOfBirth ? item.dateOfBirth.length > 15 ? formatDate(item.dateOfBirth) : item.dateOfBirth : null}</td>
                     <td>{item.email}</td>
                     <td>{item.phoneNumber}</td>
                     <td><span className={'badge ' + (documenetsPendingCheck(item) === 'All Documents Approved' ? 'badge-info' : 'badge-pending')}>{documenetsPendingCheck(item)}</span></td>

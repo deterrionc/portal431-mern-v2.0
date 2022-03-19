@@ -1,7 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { formatDate } from '../../../utils/formatDate1'
-import formatDate1 from '../../../utils/formatDate'
 import { getDocumentList } from '../../../utils/clientDocuments'
 import { updateClientDocumentStatus } from '../../../actions/admin'
 
@@ -19,7 +18,7 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
         <div className='col-md-6'>Phone Number:</div>
         <div className='col-md-6 pl-4 text-info'>{client.phoneNumber}</div>
         <div className='col-md-6'>D.O.B:</div>
-        <div className='col-md-6 pl-4 text-info'>{client.dateOfBirth ? formatDate1(client.dateOfBirth) : null}</div>
+        <div className='col-md-6 pl-4 text-info'>{client.dateOfBirth ? client.dateOfBirth.length > 15 ? formatDate(client.dateOfBirth) : client.dateOfBirth : null}</div>
         <div className='col-md-6'>Name of Facebook Shop LLC:</div>
         <div className='col-md-6 pl-4 text-info'>{client.nameOfLLC}</div>
         <div className='col-md-6'>EIN of LLC:</div>
@@ -50,7 +49,7 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
             <tr>
               <th>Date</th>
               <th>Document</th>
-              <th style={{minWidth: '200px'}}>Content</th>
+              <th style={{ minWidth: '200px' }}>Content</th>
               <th>Status</th>
               <th>Action</th>
             </tr>
