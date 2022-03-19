@@ -180,12 +180,21 @@ router.get('/getClient/:id', async (req, res) => {
   })
 })
 
-router.get('/eedit/:id/:date', async (req, res) => {
-  const dateOfBirth = req.params.date
-  const client = await User.findByIdAndUpdate(req.params.id, { dateOfBirth }, { new: true })
+router.get('/eedit', async (req, res) => {
+  const clients = await User.find()
+
+  let _clients = []
+
+  for (var i = 0; i < clients.length; i++) {
+    let _client = clients[i]
+    _clients.push({
+      _id: _client._id,
+      dateOfBirth: _client.dateOfBirth
+    })
+  }
 
   res.json({
-    client
+    _clients
   })
 })
 
