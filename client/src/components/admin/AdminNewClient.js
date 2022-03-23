@@ -16,6 +16,7 @@ const AddNewClient = ({ addNewClient }) => {
     password: '',
     phoneNumber: '',
     dateOfBirth: '',
+    billingAddress: '',
     nameOfLLC: '',
     einOfLLC: '',
     addressOfLLC: '',
@@ -31,7 +32,7 @@ const AddNewClient = ({ addNewClient }) => {
     backCardLink: ''
   })
 
-  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, billingAddress, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -123,6 +124,16 @@ const AddNewClient = ({ addNewClient }) => {
                   />
                 </div>
                 <div className='form-group'>
+                  <label>Billing Address</label>
+                  <input
+                    className='form-control'
+                    name='billingAddress'
+                    value={billingAddress}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className='form-group'>
                   <label>Name of Your LLC to be used for the Facebook Shop</label>
                   <input
                     type='text'
@@ -166,6 +177,8 @@ const AddNewClient = ({ addNewClient }) => {
                     required
                   />
                 </div>
+              </div>
+              <div className='col-md-6'>
                 <div className='form-group'>
                   <label>Bank Account Number for Sales Revenue</label>
                   <input
@@ -188,8 +201,6 @@ const AddNewClient = ({ addNewClient }) => {
                     required
                   />
                 </div>
-              </div>
-              <div className='col-md-6'>
                 <div className='form-group'>
                   <label>Facebook Login EMAIL. (If you created your Facebook with a phone number, please go into settings and find the email associated, please associate one with your Facebook and provide that email to us below)</label>
                   <input

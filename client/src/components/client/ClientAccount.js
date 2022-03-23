@@ -28,6 +28,8 @@ const ClientAccount = ({ client }) => {
           <div className='col-md-6 pl-4 text-info'>{client.phoneNumber}</div>
           <div className='col-md-6'>D.O.B:</div>
           <div className='col-md-6 pl-4 text-info'>{client.dateOfBirth ? client.dateOfBirth.length > 15 ? formatDate(client.dateOfBirth) : client.dateOfBirth : null}</div>
+          <div className='col-md-6'>Billing Address:</div>
+          <div className='col-md-6 pl-4 text-info'>{client.billingAddress}</div>
           <div className='col-md-6'>Name of Facebook Shop LLC:</div>
           <div className='col-md-6 pl-4 text-info'>{client.nameOfLLC}</div>
           <div className='col-md-6'>EIN of LLC:</div>

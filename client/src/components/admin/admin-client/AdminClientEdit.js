@@ -7,9 +7,9 @@ import { useHistory } from 'react-router-dom'
 const AdminClientEdit = ({ client, updateClient }) => {
   const history = useHistory()
 
-  const [formData, setFormData] = React.useState({ firstName: '', lastName: '', email: '', password: '', phoneNumber: '', dateOfBirth: '', nameOfLLC: '', einOfLLC: '', addressOfLLC: '', nameOfStore: '', bankAccount: '', bankRouting: '', emailOfFacebook: '', passwordOfFacebook: '', amazonLogin: '', amazonPassword: '', amazonPrime: '', frontCardLink: '', backCardLink: '' })
+  const [formData, setFormData] = React.useState({ firstName: '', lastName: '', email: '', password: '', phoneNumber: '', dateOfBirth: '', billingAddress: '', nameOfLLC: '', einOfLLC: '', addressOfLLC: '', nameOfStore: '', bankAccount: '', bankRouting: '', emailOfFacebook: '', passwordOfFacebook: '', amazonLogin: '', amazonPassword: '', amazonPrime: '', frontCardLink: '', backCardLink: '' })
 
-  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, billingAddress, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, amazonLogin, amazonPassword, amazonPrime, frontCardLink, backCardLink } = formData
 
   React.useEffect(() => {
     let _formData = { ...client }
@@ -111,6 +111,18 @@ const AdminClientEdit = ({ client, updateClient }) => {
                   className='form-control'
                   name='dateOfBirth'
                   value={dateOfBirth}
+                  onChange={onChange}
+                  required
+                />
+              </div>
+            </div>
+            <div className='col-md-6'>Billing Address:</div>
+            <div className='col-md-6 pl-4'>
+              <div className='form-group'>
+                <input
+                  className='form-control'
+                  name='billingAddress'
+                  value={billingAddress}
                   onChange={onChange}
                   required
                 />

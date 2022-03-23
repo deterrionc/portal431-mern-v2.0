@@ -40,6 +40,9 @@ const UserSchema = new mongoose.Schema({
   dateOfBirth: {
     type: String
   },
+  billingAddress: {
+    type: String
+  },
   nameOfLLC: {
     type: String
   },
