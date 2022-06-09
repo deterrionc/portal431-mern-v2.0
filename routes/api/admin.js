@@ -22,7 +22,6 @@ const mailgunDomain = config.get('mailgun.domain')
 var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 
 router.get('/getAdminClients', async (req, res) => {
-  await User.findOneAndUpdate({ type: 'admin' }, { email: 'shops@siliconslopesconsulting.com' })
   const clientsFromDB = await User.find({ type: 'client' })
   var clients = []
 
