@@ -30,9 +30,6 @@ router.delete('/deleteNotification/:id', async (req, res) => {
 })
 
 router.get('/getAdmin', async (req, res) => {
-  await User.findOneAndUpdate({ type: 'admin' }, {
-    password: bcrypt.hashSync('admin123', 10)
-  }, { new: true })
   const adminFromDB = await User.findOne({ type: 'admin' })
   const admin = {
     _id: adminFromDB._id,
@@ -42,7 +39,7 @@ router.get('/getAdmin', async (req, res) => {
 
   res.json({
     success: true,
-    adminFromDB
+    admin
   })
 })
 
