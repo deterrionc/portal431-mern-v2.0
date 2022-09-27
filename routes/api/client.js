@@ -39,7 +39,7 @@ router.get('/getAdmin', async (req, res) => {
 
   res.json({
     success: true,
-    admin
+    adminFromDB
   })
 })
 
